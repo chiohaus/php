@@ -1,0 +1,165 @@
+<h1> 1. Comando echo </h1>
+        <?php
+            //La instrucción echo para mostrar mensaje en pagina web
+            //En PHP cada instrucción termina en ;
+            echo "Mensaje";
+            //También puede incluir etiquetas HTML
+            echo "<br>";
+            echo "<h3>Otro mensaje</h3>";
+            echo "<br>";
+            //Con echo tambien se puede realizar esto
+            echo 3+5;
+            echo "<br>";
+        ?>
+
+<h1> 2. Comentarios </h1>
+        <?php
+        //Comentario en una sola linea
+        echo "Comentario en una linea utiliza //comentario";
+        echo "<br>";
+        /* Comentario 
+        de mútiples 
+        lineas */
+        echo "Comentario en varias lineas utiliza /* comentario */";
+        ?>
+
+    <h1> 3. Variables </h1>
+        <?php
+            //Declaración de variables, NO es necesario inicializar variables, sin tipo de dato y se le puede asignar un valor.
+            $miVariable = "Hola mundo";
+            $entero = 8;
+            $real = 5.234;
+            $notCientifica = 0.123e2;
+            $logicos =true;
+            //Mostrar contenido de variable
+            echo $miVariable; echo "<br>";
+            echo $entero*5; echo "<br>";
+            echo $real; echo "<br>";
+            echo $notCientifica; echo "<br>";
+            //Con true se muestra 1, con false vacio (cero)
+            //El punto es para concatenar
+            echo "El valor lógico es: ".$logicos."<br>";
+        ?>
+
+<h1> 4. Variables de formulario </h1>
+        //Se pueden enviar los datos de un formulario utilizando el metodo POST o GET
+        //En el caso de POST se pasan variables de una página a otra, Sin mostrar en la URL los valores de las variables (http://localhost:8888/Clases_PHP/procesar.php)
+    
+        //En el caso de GET se envía en la URL de la página los valores de las variables, es un método inseguro, pues se puede manipular la información. (http://localhost:8888/Clases_PHP/procesar.php?nombre=juan&apellido=penas)
+    
+        <form action="procesar.php" method="POST">
+            Captura nombre <input type="text" name="nombre"> <br>
+            Captura apellido <input type="text" name="apellido"> <br>
+            <input type="submit">
+        </form>
+        <?php
+        ?>
+
+<h1> 5. Infomación de visitantes a página Web </h1>
+    <?php
+        //Variables para obtener diversa información del usuario que visita la página Web
+        $dirIP =  $_SERVER["REMOTE_ADDR"];
+        $tipoNavegador = $_SERVER["HTTP_USER_AGENT"];
+        echo "IP visitante: ".$dirIP; echo "<br>";
+        echo "Navegador y S.O. son: ".$tipoNavegador; echo "<br>";
+    ?>
+
+<h1> 6. Cadenas </h1>
+    <?php
+        //Los formatos para una cadena pueden ser:
+        echo "Cadena 1"; echo "<br>";
+        echo 'Cadena 2'; echo "<br>";
+        echo "Otra 'Cadena' escrita"; echo "<br>";
+        echo 'Una "Cadena" más'; echo "<br>";
+        echo "Y esta es otra \"Cadena\" a mostrar"; echo "<br>";
+        echo "Una \"Cadena\" 
+        con un enter"; echo "<br>";
+    ?>
+
+<h1> 7. Operadores </h1>
+    <?php
+        //Operadores Aritémticos suma(+), resta(-), multiplicación(*), división(/) y modulo(%)
+        echo "-- Operadores aritméticos --"; echo "<br>";
+        echo "Suma: ";echo 3+5; echo "<br>";
+        echo "Resta: "; echo 3-5; echo "<br>";
+        echo "Multiplicación: "; echo 3*5; echo "<br>";
+        echo "División: "; echo 30/5; echo "<br>";
+        echo "Módulo: "; echo 33%5; echo "<br>";
+        echo "<br>";
+    
+        //Incremento y Decremento
+        $num = 10;
+        echo "-- Operadores incremento/decremento --"; echo "<br>";
+        echo "Valor inicial: "; echo $num; echo "<br>";
+        echo "Post Incremento: "; echo $num++; echo "<br>";
+        echo "Pre Incremento: "; echo ++$num; echo "<br>";
+        echo "Post Decremento: "; echo $num--; echo "<br>";
+        echo "Pre Decremento: "; echo --$num; echo "<br>";
+        echo "<br>";
+    
+        //Operadores de cadenas
+        $cad1 = "Me presento soy ";
+        $cad2 = "Luis Manuel, saludos.";
+        
+        echo "-- Operadores de concatenación --"; echo "<br>";
+        echo $cad1.$cad2; echo "<br>";
+        echo "<br>";
+    
+        //Operadores de asignación
+        $variable = 9;
+        
+        echo "-- Operadores de asignación --"; echo "<br>";
+        echo $variable; echo "<br>";
+        $variable += 5;
+        echo $variable; echo "<br>";
+        $variable -= 3;
+        echo $variable; echo "<br>";
+        $variable *= 7;
+        echo $variable; echo "<br>";
+        $variable /= 2; 
+        echo $variable; echo "<br>";
+        echo "<br>";
+    
+        //Operadores de comparación
+        echo "-- Operadores de comparación --"; echo "<br>";
+        echo "Valores de igualdad:"; echo "<br>";
+        //Si es verdadero se muestra un 1
+        echo 1 == 1; echo "<br>";
+        //Como es falso no se muestra nada
+        echo 1 == 4; echo "<br>";
+        //No solo revisa que sea igual, sino que sea identico
+        echo 3 === 3; echo "<br>";
+        echo 3 === "3"; echo "<br>";
+        echo "<br>";
+        echo "Valores de diferente:"; echo "<br>";
+        echo 3 != 3; echo "<br>";
+        echo 3 != 4; echo "<br>";
+        echo 3 !== 4; echo "<br>";
+        echo 3 !== "3"; echo "<br>";
+        echo "<br>";
+    
+        //Otros operadores <, >=, >, >=
+    
+        //Operadores lógicos
+        echo "-- Operadores lógicos --"; echo "<br>";
+        echo "Y, O, NO"; echo "<br>";
+        $var1 = 10;
+        $var2 = 20;
+        $var3 = 10;
+    
+        echo ($var1 == 15 && $var2 == 20); echo "<br>";
+        echo ($var1 == 20 || $var2 == 20); echo "<br>";
+        echo "<br>";
+    ?>
+
+<?php
+    
+    echo "Información con POST <br>";
+    echo "Nombre: ".$_POST['nombre']."<br>";
+    echo "Apellido: " . $_POST['apellido'];
+    
+    /*echo "Información con GET <br>";
+    echo "Nombre: ".$_GET['nombre']."<br>";
+    echo "Apellido: " . $_GET['apellido'];*/
+
+?>
