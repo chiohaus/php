@@ -42,18 +42,19 @@
         ?>
 
 <h1> 4. Variables de formulario </h1>
-        //Se pueden enviar los datos de un formulario utilizando el metodo POST o GET
+<?php
+//Se pueden enviar los datos de un formulario utilizando el metodo POST o GET
         //En el caso de POST se pasan variables de una página a otra, Sin mostrar en la URL los valores de las variables (http://localhost:8888/Clases_PHP/procesar.php)
     
         //En el caso de GET se envía en la URL de la página los valores de las variables, es un método inseguro, pues se puede manipular la información. (http://localhost:8888/Clases_PHP/procesar.php?nombre=juan&apellido=penas)
-    
+            ?>
         <form action="procesar.php" method="POST">
             Captura nombre <input type="text" name="nombre"> <br>
             Captura apellido <input type="text" name="apellido"> <br>
             <input type="submit">
         </form>
-        <?php
-        ?>
+        
+       
 
 <h1> 5. Infomación de visitantes a página Web </h1>
     <?php
